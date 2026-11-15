@@ -1,0 +1,394 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Quaderno 16-22 novembre</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: quaderno a pagine singole, indice a schede ruotate, una ricetta per pagina, lista della spesa in fondo */
+:root{
+  --paper:#f5ecdc; --paper-2:#efe3cd; --card:#fbf6ec; --ink:#2c241c; --ink-2:#6a5a49;
+  --dot:rgba(120,90,60,.22); --line:#d9c7a8;
+  --brick:#a5452e; --olive:#66763a; --mustard:#c39126; --brick-soft:rgba(165,69,46,.10); --olive-soft:rgba(102,118,58,.12); --mustard-soft:rgba(195,145,38,.16);
+  --shadow:0 2px 0 rgba(60,40,20,.08),0 8px 22px rgba(60,40,20,.10);
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#1e1a15; --paper-2:#26211b; --card:#2b251e; --ink:#efe5d4; --ink-2:#b9a991;
+  --dot:rgba(239,229,212,.10); --line:#4a3f33;
+  --brick:#e0846a; --olive:#b2c27a; --mustard:#e6b85a; --brick-soft:rgba(224,132,106,.14); --olive-soft:rgba(178,194,122,.14); --mustard-soft:rgba(230,184,90,.14);
+  --shadow:0 2px 0 rgba(0,0,0,.25),0 10px 24px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#1e1a15; --paper-2:#26211b; --card:#2b251e; --ink:#efe5d4; --ink-2:#b9a991;
+  --dot:rgba(239,229,212,.10); --line:#4a3f33;
+  --brick:#e0846a; --olive:#b2c27a; --mustard:#e6b85a; --brick-soft:rgba(224,132,106,.14); --olive-soft:rgba(178,194,122,.14); --mustard-soft:rgba(230,184,90,.14);
+  --shadow:0 2px 0 rgba(0,0,0,.25),0 10px 24px rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  background-image:radial-gradient(var(--dot) 1.1px,transparent 1.3px);background-size:22px 22px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:860px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-style:italic;font-weight:500;text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(2.1rem,6vw,3.2rem)}
+h2{font-size:clamp(1.6rem,4.5vw,2.2rem)}
+h3{font-size:1.3rem}
+p{margin:0}
+a{color:var(--brick)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--mustard);outline-offset:2px;border-radius:4px}
+
+/* barra */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px dashed var(--line);margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px))}
+.bar-in{max-width:860px;margin:0 auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.88rem;cursor:pointer}
+.tab[aria-current="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pers{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:.85rem;color:var(--ink-2)}
+.pers button{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--card);font-weight:700;cursor:pointer}
+.pers button[aria-pressed="true"]{background:var(--brick);border-color:var(--brick);color:var(--card)}
+
+.page{padding-top:28px}
+.eyebrow{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--brick)}
+.lead{font-size:1.05rem;color:var(--ink-2);max-width:62ch;margin-top:10px}
+
+/* indice */
+.cover{display:grid;gap:8px;margin-bottom:26px}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.day{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 16px 14px;box-shadow:var(--shadow);transform:rotate(var(--r,0deg));transition:transform .2s ease,box-shadow .2s ease;position:relative;min-width:0}
+.day::before{content:"";position:absolute;left:0;right:0;top:44px;border-top:1px solid var(--brick-soft)}
+.day:hover{transform:rotate(0deg) translateY(-3px)}
+.day h3{font-size:1.45rem;margin-bottom:14px}
+.day .tag{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--olive);margin-left:6px;font-family:var(--body);font-style:normal}
+.meal{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:6px 0;border-bottom:1px dotted var(--line);align-items:baseline}
+.meal:last-child{border-bottom:0}
+.meal .when{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2)}
+.go{background:none;border:0;padding:0;text-align:left;cursor:pointer;font-family:var(--display);font-style:italic;font-size:1.08rem;color:var(--ink);text-decoration:underline;text-decoration-color:var(--mustard);text-decoration-thickness:2px;text-underline-offset:3px}
+.go:hover{color:var(--brick)}
+.away{font-size:.92rem;color:var(--ink-2)}
+.pill{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:1px 7px;border-radius:999px;margin-left:4px;vertical-align:2px}
+.p-pesce{background:rgba(70,120,160,.14);color:#3d6c8f}
+.p-legumi{background:var(--olive-soft);color:var(--olive)}
+.p-carne{background:var(--brick-soft);color:var(--brick)}
+.p-uova{background:var(--mustard-soft);color:#8c6514}
+.p-formaggio{background:var(--mustard-soft);color:#8c6514}
+.p-nessuna{background:var(--paper-2);color:var(--ink-2)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .p-pesce{color:#8fc0e3;background:rgba(143,192,227,.14)}:root:not([data-theme="light"]) .p-uova,:root:not([data-theme="light"]) .p-formaggio{color:var(--mustard)}}
+:root[data-theme="dark"] .p-pesce{color:#8fc0e3;background:rgba(143,192,227,.14)}
+:root[data-theme="dark"] .p-uova,:root[data-theme="dark"] .p-formaggio{color:var(--mustard)}
+.extra{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:6px;box-shadow:var(--shadow);padding:18px}
+.tally{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:12px}
+.tally div{border-left:3px solid var(--mustard);padding-left:10px}
+.tally b{font-family:var(--display);font-style:italic;font-size:1.6rem;font-weight:600;display:block;line-height:1;font-variant-numeric:tabular-nums}
+.tally span{font-size:.82rem;color:var(--ink-2)}
+
+/* ricetta */
+.rhead{display:grid;gap:10px;margin-bottom:18px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.9rem;color:var(--ink-2)}
+.meta b{color:var(--ink)}
+.src{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.92rem}
+.note{border:1px dashed var(--olive);background:var(--olive-soft);border-radius:6px;padding:12px 14px;font-size:.95rem;margin-top:14px}
+.note.warn{border-color:var(--mustard);background:var(--mustard-soft)}
+.note strong{color:var(--olive)}
+.note.warn strong{color:var(--ink)}
+.cols{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:22px;margin-top:20px;align-items:start}
+@media (max-width:720px){.cols{grid-template-columns:minmax(0,1fr)}}
+.ing{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px;box-shadow:var(--shadow);transform:rotate(-.6deg)}
+.ing h3,.steps h3{margin-bottom:10px}
+.sub{font-size:.8rem;color:var(--ink-2);margin:-6px 0 10px}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px dotted var(--line);cursor:pointer}
+.chk:last-child{border-bottom:0}
+.chk input{appearance:none;width:18px;height:18px;border:1.5px solid var(--ink-2);border-radius:3px;margin-top:3px;flex:none;display:grid;place-content:center;background:var(--card);cursor:pointer}
+.chk input:checked{background:var(--olive);border-color:var(--olive)}
+.chk input:checked::after{content:"";width:5px;height:9px;border:solid var(--card);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.chk input:checked + span{text-decoration:line-through;color:var(--ink-2)}
+.qty{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.progress{height:10px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);overflow:hidden;margin:4px 0 6px}
+.progress i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,var(--brick),var(--brick) 6px,var(--mustard) 6px,var(--mustard) 12px);transition:width .3s ease}
+.plabel{font-size:.82rem;color:var(--ink-2);font-variant-numeric:tabular-nums;margin-bottom:10px}
+.steps ol{list-style:none;margin:0;padding:0;display:grid;gap:8px;counter-reset:s}
+.step{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:10px 12px;cursor:pointer;transition:background .15s}
+.step::before{counter-increment:s;content:counter(s);font-family:var(--display);font-style:italic;font-weight:600;font-size:1.25rem;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--brick);color:var(--brick);display:grid;place-content:center;line-height:1}
+.step.done{background:var(--olive-soft);border-color:var(--olive)}
+.step.done::before{content:"✓";background:var(--olive);border-color:var(--olive);color:var(--card);font-style:normal;font-size:1rem}
+.step.done p{color:var(--ink-2)}
+.side{margin-top:14px;font-size:.95rem}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:30px;flex-wrap:wrap}
+.btn{border:1px solid var(--ink);background:var(--card);border-radius:4px;padding:8px 14px;font-weight:600;cursor:pointer;font-size:.9rem}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.ghost{border:0;background:none;color:var(--ink-2);text-decoration:underline;cursor:pointer;font-size:.85rem;padding:0}
+
+/* pagine di testo */
+.prose{display:grid;gap:16px;max-width:66ch}
+.prose h3{margin-top:6px}
+
+/* spesa */
+.shop{display:grid;gap:22px;margin-top:20px}
+.shopgrp{background:var(--card);border:1px solid var(--line);border-radius:6px;box-shadow:var(--shadow);padding:16px 18px}
+.shopgrp:nth-child(odd){transform:rotate(-.4deg)}
+.shopgrp:nth-child(even){transform:rotate(.4deg)}
+.shopgrp h3{margin-bottom:4px}
+.cat{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--olive);margin:14px 0 2px}
+.days-small{font-size:.78rem;color:var(--ink-2);margin-left:4px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}.day,.ing,.shopgrp{transform:none!important}}
+</style>
+
+<div class="bar"><div class="bar-in">
+  <button class="tab" data-go="indice" id="t-indice">La settimana</button>
+  <button class="tab" data-go="spesa" id="t-spesa">Lista della spesa</button>
+  <div class="pers" role="group" aria-label="Persone a tavola">
+    <span>Persone</span>
+    <button id="p1" data-p="1" aria-pressed="false">1</button>
+    <button id="p2" data-p="2" aria-pressed="true">2</button>
+    <button id="p3" data-p="3" aria-pressed="false">3</button>
+    <button id="p4" data-p="4" aria-pressed="false">4</button>
+  </div>
+</div></div>
+
+<main class="wrap" id="app"></main>
+
+<script>
+(function(){
+const store={get(k,d){try{const v=localStorage.getItem("q1622:"+k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem("q1622:"+k,JSON.stringify(v))}catch(e){}}};
+
+/* ricette: q e u per la ricetta, sq/su per la spesa quando servono unità diverse */
+const R=[
+{id:"ceci",day:"lun",dayL:"Lunedì 16",meal:"Pranzo",title:"Pasta e ceci",prot:"legumi",base:4,
+ url:"https://ricette.giallozafferano.it/Pasta-e-ceci.html",time:"50 minuti",start:"Per pranzare alle 13, comincia alle 12:10.",
+ lact:"Nessun latticino. Se vuoi il Parmigiano alla fine, è naturalmente privo di lattosio.",
+ extra:"La pancetta affumicata è l'unico salume della settimana.",
+ ing:[["Pipe rigate",320,"g","Pipe rigate","pasta"],["Ceci precotti, sgocciolati",500,"g","Ceci precotti","disp"],["Passata di pomodoro",250,"g","Passata di pomodoro","disp"],["Pancetta affumicata",100,"g","Pancetta affumicata","carne"],["Cipolla dorata",1,"pz","Cipolle dorate","verd",150,"g"],["Carota",1,"pz","Carote","verd",100,"g"],["Sedano",1,"costa","Sedano","verd",50,"g"],["Concentrato di pomodoro",1,"cucchiaino","Concentrato di pomodoro","disp",5,"g"],["Vino bianco secco",50,"ml","Vino bianco secco","disp"],["Rosmarino",1,"rametto","Rosmarino","erbe"],["Olio extravergine, sale, pepe",null,"q.b.","Olio extravergine d'oliva","qb"]],
+ steps:["Trita finemente carota, cipolla e sedano, e a parte gli aghi di rosmarino.","Togli la cotenna alla pancetta, tienila da parte e taglia il resto a listarelle.","Scalda un filo d'olio in una casseruola e fai appassire il trito di verdure per qualche minuto.","Aggiungi la cotenna, poi la pancetta e il rosmarino, e lascia rosolare bene.","Sfuma con il vino bianco finché l'alcol è evaporato del tutto, poi sala e pepa.","Unisci ceci e passata, mescola e lascia sobbollire per circa 15 minuti.","Nel frattempo cuoci la pasta in acqua salata e scolala molto al dente.","Aggiungi al sugo il concentrato e un mestolo di acqua di cottura.","Togli la cotenna, frulla un terzo dei ceci con il frullatore a immersione e rimetti la crema in pentola.","Scola la pasta nel sugo e finisci la cottura lì, allungando con acqua bollente se serve.","Completa con qualche ago di rosmarino e pepe nero, e servi subito."],
+ side:"È un piatto unico: basta così."},
+{id:"uova",day:"mer",dayL:"Mercoledì 18",meal:"Cena",title:"Uova in purgatorio",prot:"uova",base:4,
+ url:"https://ricette.giallozafferano.it/Uova-in-purgatorio.html",time:"30 minuti",start:"Pronte mezz'ora dopo che accendi il fuoco: ideale al rientro da Siena.",
+ lact:"Nessun latticino nella ricetta base.",
+ ing:[["Uova",4,"pz","Uova","uova"],["Pomodori pelati",320,"g","Pomodori pelati","disp"],["Cipolla",0.5,"pz","Cipolle dorate","verd",75,"g"],["Basilico",null,"q.b.","Basilico","erbe"],["Olio extravergine, sale, pepe",null,"q.b.","Olio extravergine d'oliva","qb"],["Pane per la scarpetta",200,"g","Pane","pane"],["Finocchi, per il contorno",800,"g","Finocchi","verd"]],
+ steps:["Trita finemente la cipolla e falla appassire in padella con un giro d'olio, a fiamma dolce, per 8-10 minuti, finché è morbida e trasparente.","Schiaccia i pelati con le mani, versali in padella, sala e mescola.","Copri e cuoci 20 minuti a fiamma bassa, mescolando ogni tanto.","Togli il coperchio e scava nel sugo una conca per ogni uovo.","Rompi un uovo in ogni conca (più comodo se lo apri prima in una ciotolina), poi un pizzico di sale e pepe.","Copri di nuovo e cuoci 4-5 minuti a fiamma dolce: il tuorlo deve restare morbido.","Spezzetta il basilico a mano sopra e porta in tavola con il pane."],
+ side:"Contorno: finocchi crudi a fettine sottili, con olio e sale."},
+{id:"salmone",day:"gio",dayL:"Giovedì 19",meal:"Pranzo",title:"Salmone in crosta di pistacchi",prot:"pesce",base:4,
+ url:"https://ricette.giallozafferano.it/Salmone-in-crosta-di-pistacchi.html",time:"35 minuti",start:"Per pranzare alle 13, comincia alle 12:25.",
+ lact:"Nessun latticino.",
+ ing:[["Tranci di salmone fresco",800,"g","Salmone fresco, tranci","pesce"],["Granella di pistacchi",100,"g","Granella di pistacchi","disp"],["Uovo",1,"pz","Uova","uova"],["Farina 00",20,"g","Farina 00","disp"],["Aglio",1,"spicchio","Aglio","verd"],["Timo",2,"rametti","Timo","erbe"],["Olio extravergine",20,"g","Olio extravergine d'oliva","qb"],["Sale e pepe",null,"q.b.","Sale e pepe","qb"],["Broccoli, per il contorno",800,"g","Broccoli","verd"]],
+ steps:["Dividi il salmone in tranci da circa 200 g.","Sbatti l'uovo in un piatto fondo con sale, pepe e qualche fogliolina di timo.","In padella scalda a fuoco basso un velo d'olio con lo spicchio d'aglio e un rametto di timo.","Infarina ogni trancio, passalo nell'uovo e poi nella granella, premendo perché aderisca su tutti i lati.","Cuoci a fuoco medio per circa 10 minuti, gira i tranci e prosegui altri 10 minuti, qualcosa in più se sono spessi.","Quando la crosta è dorata completa con timo fresco e servi. In alternativa al fornello: forno statico a 180 °C per 25 minuti."],
+ side:"Contorno: broccoli al vapore con un filo d'olio a crudo."},
+{id:"risotto",day:"gio",dayL:"Giovedì 19",meal:"Cena, 18:30",title:"Risotto alla zucca",prot:"nessuna",base:4,
+ url:"https://ricette.giallozafferano.it/Risotto-alla-zucca.html",time:"70 minuti, più il brodo",start:"Mettiti ai fornelli alle 17:20 per cenare alle 18:30. Il brodo puoi farlo a pranzo e scaldarlo.",
+ lact:"La ricetta usa 50 g di burro: prendi burro senza lattosio, oppure manteca con un filo d'olio. Il Parmigiano è naturalmente privo di lattosio; qui la dose è ridotta a metà rispetto alla ricetta per tenere la cena leggera.",
+ extra:"Cena prima dell'allenamento delle 21: carboidrati e poche proteine. Alle 18:30 restano due ore e mezza prima di iniziare.",
+ ing:[["Riso Carnaroli",320,"g","Riso Carnaroli","pasta"],["Zucca delica",750,"g","Zucca delica","verd"],["Cipolla ramata",100,"g","Cipolle ramate","verd"],["Brodo vegetale",1.5,"l","Brodo vegetale (o carota, sedano e cipolla per farlo)","disp"],["Vino bianco secco",60,"ml","Vino bianco secco","disp"],["Burro senza lattosio",50,"g","Burro senza lattosio","latt"],["Parmigiano Reggiano grattugiato",40,"g","Parmigiano Reggiano","latt"],["Olio extravergine, sale, pepe",null,"q.b.","Olio extravergine d'oliva","qb"]],
+ steps:["Prepara il brodo vegetale e tienilo caldo.","Sbuccia la zucca, togli i semi e tagliala a cubetti: ne servono circa 600 g puliti.","Trita la cipolla e falla stufare in una padella larga con poco olio e un pizzico di sale, a fiamma bassissima, per circa 10 minuti.","Aggiungi la zucca, falla insaporire qualche minuto, poi cuocila per circa 20 minuti aggiungendo brodo un mestolo alla volta, finché diventa morbida e cremosa.","In un'altra pentola tosta il riso a fiamma alta per 2-3 minuti, mescolando, poi sfuma con il vino bianco finché evapora.","Versa il riso nella zucca e portalo a cottura in 15-20 minuti, aggiungendo brodo caldo quando serve.","A fuoco spento manteca con il burro senza lattosio (o l'olio) e il Parmigiano, aggiungi pepe e regola di sale, mescolando con energia.","Se lo vuoi più morbido aggiungi un ultimo mestolo di brodo, lascia riposare 1-2 minuti e servi."],
+ side:"Verso le 20:20, mezz'ora prima dell'allenamento, una fetta di pane con marmellata o miele."},
+{id:"pollo",day:"ven",dayL:"Venerdì 20",meal:"Pranzo",title:"Pollo alla cacciatora",prot:"carne",base:4,
+ url:"https://ricette.giallozafferano.it/Pollo-alla-cacciatora.html",time:"70 minuti, di cui 50 di cottura",start:"Per pranzare alle 13, comincia alle 11:50.",
+ lact:"Nessun latticino.",
+ ing:[["Pollo a pezzi",1200,"g","Pollo a pezzi","carne"],["Pomodori pelati",400,"g","Pomodori pelati","disp"],["Cipolla dorata",1,"pz","Cipolle dorate","verd",150,"g"],["Carota",1,"pz","Carote","verd",100,"g"],["Sedano",1,"costa","Sedano","verd",50,"g"],["Aglio",1,"spicchio","Aglio","verd"],["Vino rosso",100,"ml","Vino rosso","disp"],["Rosmarino",1,"rametto","Rosmarino","erbe"],["Prezzemolo",1,"ciuffo","Prezzemolo","erbe"],["Olio extravergine, sale, pepe",null,"q.b.","Olio extravergine d'oliva","qb"],["Cavolfiore, per il contorno",800,"g","Cavolfiore","verd"]],
+ steps:["Trita carota, cipolla e sedano.","Taglia il pollo in 8 pezzi, separando petto, cosce, sovracosce e ali, oppure fattelo porzionare al banco.","Scalda l'olio in una padella larga e adagia il pollo dal lato della pelle, con sale e pepe.","Rosola a fuoco medio-alto senza muoverlo per circa 6 minuti, finché fa la crosticina; gira, condisci e dora anche l'altro lato.","Sfuma con il vino rosso, lascia evaporare l'alcol e sposta il pollo in un piatto coperto.","Nella stessa padella metti il trito, l'aglio e il rosmarino, abbassa un po' la fiamma e lascia stufare circa 10 minuti.","Rimetti il pollo in padella, aggiungi i pelati, copri e cuoci 30 minuti a fuoco basso.","Spegni, aggiungi il prezzemolo tritato, togli aglio e rosmarino e servi: il sugo deve essere denso, non brodoso."],
+ side:"Contorno: cavolfiore a cimette al forno con olio, sale e pepe."},
+{id:"gamberi",day:"ven",dayL:"Venerdì 20",meal:"Cena, 18:30",title:"Pasta pomodorini e gamberi",prot:"pesce",base:4,
+ url:"https://ricette.giallozafferano.it/Pasta-pomodorini-e-gamberi.html",time:"60 minuti",start:"Comincia alle 17:30 per cenare alle 18:30. Se pulisci i gamberi a pranzo, guadagni un quarto d'ora.",
+ lact:"Nessun latticino. Gamberi freschi o surgelati, mai in scatola.",
+ extra:"Cena prima della partita: carboidrati e la proteina leggera dei gamberi. Se si gioca prima delle 21, anticipa la cena di conseguenza.",
+ ing:[["Trofie fresche",500,"g","Trofie fresche","pasta"],["Gamberi",400,"g","Gamberi, freschi o surgelati","pesce"],["Pomodorini datterini",250,"g","Pomodorini datterini","verd"],["Concentrato di pomodoro",20,"g","Concentrato di pomodoro","disp"],["Aglio",1,"spicchio","Aglio","verd"],["Peperoncino fresco",1,"pz","Peperoncino fresco","verd"],["Limone, per la scorza",1,"pz","Limoni","verd"],["Basilico",null,"q.b.","Basilico","erbe"],["Prezzemolo",null,"q.b.","Prezzemolo","erbe"],["Olio extravergine, sale, pepe",null,"q.b.","Olio extravergine d'oliva","qb"]],
+ steps:["Lava i pomodorini e tagliali a metà per il lungo.","In padella scalda un filo d'olio con aglio e peperoncino a fuoco medio; quando l'aglio è dorato aggiungi i pomodorini.","Alza la fiamma e cuocili pochi minuti, finché rilasciano un po' di sugo. Togli aglio e peperoncino, aggiungi basilico spezzettato e un pizzico di sale, e tieni da parte.","Metti sul fuoco l'acqua per la pasta e salala poco.","Sguscia i gamberi, togli il filamento scuro e tagliali a pezzetti di 1-2 cm.","Nella stessa padella rosola i gamberi con un filo d'olio per pochi minuti, poi unisci i pomodorini, salta e spegni.","Cuoci le trofie, scolale tenendo da parte un po' di acqua di cottura e versale in padella con un mestolino d'acqua.","Aggiungi il concentrato e salta ancora brevemente.","A fuoco spento completa con un filo d'olio, pepe, prezzemolo tritato e la scorza grattugiata di mezzo limone."],
+ side:"Verso le 20:20, mezz'ora prima della partita, una fetta di pane con marmellata o miele."},
+{id:"zuppa",day:"sab",dayL:"Sabato 21",meal:"Pranzo",title:"Zuppa di fagioli",prot:"legumi",base:8,
+ url:"https://ricette.giallozafferano.it/Zuppa-di-fagioli.html",time:"2 ore e 25 minuti, più 8 ore di ammollo",start:"Ammollo da venerdì mattina; sabato comincia alle 10:35 per pranzare alle 13.",
+ lact:"Nessun latticino e nessun salume.",
+ extra:"Se usi fagioli già cotti in barattolo salti l'ammollo e la prima ora di cottura: questa è una scorciatoia mia, non della ricetta. Ricordati anche il prefermento della pizza, da fare entro le 15.",
+ ing:[["Fagioli borlotti secchi",200,"g","Fagioli borlotti secchi","disp"],["Fagioli cannellini secchi",200,"g","Fagioli cannellini secchi","disp"],["Fagioli dall'occhio secchi",200,"g","Fagioli dall'occhio secchi","disp"],["Pomodori pelati",400,"g","Pomodori pelati","disp"],["Cipolle bianche",200,"g","Cipolle bianche","verd"],["Carote",150,"g","Carote","verd"],["Sedano",140,"g","Sedano","verd"],["Aglio",2,"spicchi","Aglio","verd"],["Concentrato di pomodoro",20,"g","Concentrato di pomodoro","disp"],["Rosmarino, salvia, timo, alloro",null,"q.b.","Salvia e alloro","erbe"],["Olio extravergine",40,"g","Olio extravergine d'oliva","qb"],["Sale e pepe",null,"q.b.","Sale e pepe","qb"],["Pane per i crostini",400,"g","Pane","pane"]],
+ steps:["Il giorno prima metti i fagioli in ammollo in acqua fredda per almeno 8 ore.","Scolali, sciacquali e mettili in una pentola con abbondante acqua fredda: dal bollore cuocili circa un'ora, senza sale.","Intanto trita la cipolla, taglia sedano e carota a cubetti di 3-4 mm, schiaccia i pelati senza scolarli e lega rosmarino, salvia, timo e alloro con lo spago.","In una pentola dal fondo spesso scalda l'olio e fai appassire la cipolla per 3 minuti, poi aggiungi gli spicchi d'aglio in camicia.","Unisci sedano e carota e cuoci circa 10 minuti.","Aggiungi i pelati e il mazzetto di erbe, poi i fagioli con la loro acqua di cottura e un po' d'acqua in più.","Alla ripresa del bollore abbassa la fiamma e lascia sobbollire 45-60 minuti, finché i fagioli sono teneri.","Negli ultimi minuti aggiungi concentrato e sale, poi togli il mazzetto e l'aglio.","Lascia riposare qualche minuto e servi con olio a crudo, pepe e crostini di pane tostato."],
+ side:"La ricetta originale è per 8: se ne fai di più, quello che avanza si conserva in frigo per il giorno dopo."},
+{id:"frittata",day:"sab",dayL:"Sabato 21",meal:"Cena",title:"Frittata di patate",prot:"uova",base:4,
+ url:"https://ricette.giallozafferano.it/Frittata-di-patate.html",time:"50 minuti",start:"Per cenare alle 20, comincia alle 19:10.",
+ lact:"Il Parmigiano è naturalmente privo di lattosio. Salta il goccio di latte che la pagina propone come variante.",
+ ing:[["Uova",8,"pz","Uova","uova"],["Patate",500,"g","Patate","verd"],["Parmigiano Reggiano grattugiato",100,"g","Parmigiano Reggiano","latt"],["Prezzemolo",1,"ciuffo","Prezzemolo","erbe"],["Olio di semi di arachide",null,"q.b.","Olio di semi di arachide","qb"],["Olio extravergine, sale, pepe",null,"q.b.","Olio extravergine d'oliva","qb"],["Cime di rapa, per il contorno",1000,"g","Cime di rapa","verd"]],
+ steps:["Sbuccia le patate e tagliale a cubetti di circa 1 cm.","Scalda un velo d'olio di semi in padella e cuoci le patate per 10 minuti a fuoco medio, mescolando spesso, finché sono dorate.","Scolale su carta assorbente, ben distanziate, perché si raffreddino in fretta.","In una ciotola sbatti le uova con il Parmigiano, sale, pepe e prezzemolo tritato, poi unisci le patate.","Scalda un filo d'olio extravergine in una padella da circa 21 cm di fondo e versa il composto.","Copri e cuoci a fuoco medio per 10-15 minuti, finché la base è rappresa e la superficie ancora un po' morbida.","Capovolgi la frittata su un piatto più largo della padella, facendo attenzione all'olio caldo, e falla scivolare di nuovo in padella.","Cuoci coperta altri 5 minuti e servi."],
+ side:"Contorno: cime di rapa ripassate in padella con aglio, olio e un pizzico di peperoncino."},
+{id:"polpette",day:"dom",dayL:"Domenica 22",meal:"Pranzo",title:"Polpette di lenticchie e patate al sugo",prot:"legumi",base:4,
+ url:"https://ricette.giallozafferano.it/Polpette-di-lenticchie-e-patate-al-sugo.html",time:"2 ore e 10 minuti",start:"Comincia verso le 11 per pranzare alle 13:10.",
+ lact:"Il Grana Padano è naturalmente privo di lattosio.",
+ extra:"La ricetta fa circa 25 polpette da 30 g: le ho contate come 4 porzioni.",
+ ing:[["Patate per le polpette",550,"g","Patate","verd"],["Lenticchie precotte, sgocciolate",250,"g","Lenticchie precotte","disp"],["Grana Padano grattugiato",100,"g","Grana Padano","latt"],["Uovo",1,"pz","Uova","uova"],["Pangrattato",70,"g","Pangrattato","disp"],["Rosmarino",2,"rametti","Rosmarino","erbe"],["Passata di pomodoro",500,"g","Passata di pomodoro","disp"],["Patate per il sugo",300,"g","Patate","verd"],["Scalogno",1,"pz","Scalogno","verd"],["Olio extravergine, sale, pepe",null,"q.b.","Olio extravergine d'oliva","qb"],["Radicchio, per il contorno",600,"g","Radicchio","verd"]],
+ steps:["Lessa le patate per le polpette per 30-40 minuti, secondo la grandezza.","Verso fine cottura frulla le lenticchie scolate fino a ottenere una crema e mettila in una ciotola grande.","Scola le patate, schiacciale nella ciotola e unisci il Grana e l'uovo.","Aggiungi il rosmarino tritato fine e impasta con le mani.","Unisci il pangrattato, sale, pepe e un filo d'olio, mescola bene e tieni da parte.","Per il sugo sbuccia le patate rimaste, tagliale a cubi di 2-3 cm e trita lo scalogno.","Fai appassire lo scalogno con poco olio a fuoco medio per 7-8 minuti, aggiungi le patate e rosolale 2 minuti.","Versa la passata con un po' d'acqua, regola di sale e pepe, copri e lascia sobbollire 40 minuti, mescolando ogni tanto.","Intanto forma circa 25 polpette da 30 g.","Cuocile in una padella antiaderente con poco olio, girandole con delicatezza: 4-5 minuti, poi altri 5, finché sono dorate su entrambi i lati.","Unisci polpette e sugo e servi."],
+ side:"Contorno: insalata di radicchio con olio e un goccio d'aceto."},
+{id:"pizza",day:"dom",dayL:"Domenica 22",meal:"Cena",title:"Pizza Margherita",prot:"formaggio",base:6,
+ url:"https://ricette.giallozafferano.it/Pizza-Margherita.html",time:"Prefermento di 24 ore, poi 4 ore e 35 minuti",start:"Prefermento sabato entro le 15. Domenica impasta alle 15: un'ora e 20 di lavorazione più 3 ore e 15 di lievitazione, e inforni alle 19:35.",
+ lact:"Usa mozzarella senza lattosio. Il Grana sulla pizza puoi sostituirlo con poco Parmigiano o lasciarlo fuori.",
+ extra:"Le dosi sono a pizza: una pizza da 28 cm a persona.",
+ ing:[["Farina 0 per il prefermento",500,"g","Farina 0","disp"],["Acqua per il prefermento",250,"g","Acqua","none"],["Lievito di birra secco per il prefermento",2,"g","Lievito di birra secco","disp"],["Farina 0 per l'impasto",500,"g","Farina 0","disp"],["Acqua per l'impasto",450,"g","Acqua","none"],["Olio extravergine",30,"g","Olio extravergine d'oliva","qb"],["Sale fino",25,"g","Sale e pepe","qb"],["Lievito di birra secco per l'impasto",3,"g","Lievito di birra secco","disp"],["Pomodori pelati",1000,"g","Pomodori pelati","disp"],["Mozzarella senza lattosio",600,"g","Mozzarella senza lattosio","latt"],["Parmigiano grattugiato, facoltativo",70,"g","Parmigiano Reggiano","latt"],["Basilico",null,"q.b.","Basilico","erbe"]],
+ steps:["Sabato, entro le 15: mescola la farina del prefermento con il lievito, aggiungi l'acqua e amalgama finché sul fondo non resta farina. Copri con pellicola bucherellata e metti in frigo per 24-48 ore.","Domenica alle 15: taglia a pezzi il prefermento, rimettilo nella ciotola e coprilo con l'acqua dell'impasto per sciogliere la crosticina.","Aggiungi farina e lievito e lavora finché l'acqua è assorbita, poi incorpora il sale e infine l'olio, impastando fino a un composto liscio.","Lavora l'impasto con energia sul piano infarinato e lascialo riposare 15 minuti sotto un canovaccio umido.","Dividi in panetti da circa 300 g, arrotondali e mettili distanziati in un contenitore coperto: lievitano circa 3 ore a temperatura ambiente.","Taglia la mozzarella senza lattosio a listarelle e lasciala scolare in frigo, meglio dalla mattina.","Schiaccia i pelati e condiscili con olio, basilico spezzettato e sale.","Scalda il forno alla massima temperatura, circa 250 °C, con la pietra refrattaria in alto se ce l'hai.","Stendi ogni panetto con le mani, dal centro verso il bordo, fino a circa 28 cm, lasciando il cornicione.","Condisci con i pelati lasciando libero il bordo, aggiungi la mozzarella, se vuoi poco Parmigiano, e un filo d'olio.","Cuoci una pizza alla volta per 5-7 minuti, finisci con basilico fresco e servi subito."],
+ side:""}
+];
+
+const DAYS=[
+ {k:"lun",t:"Lunedì 16",tag:"",m:[["Pranzo","r","ceci"],["Cena","s","Siena: pesce fresco"]]},
+ {k:"mar",t:"Martedì 17",tag:"Siena",m:[["Pranzo","s","Siena: legumi"],["Cena","s","Siena: carne"]]},
+ {k:"mer",t:"Mercoledì 18",tag:"",m:[["Pranzo","s","Siena: pesce fresco"],["Cena","r","uova"]]},
+ {k:"gio",t:"Giovedì 19",tag:"allenamento",m:[["Pranzo","r","salmone"],["18:30","r","risotto"]]},
+ {k:"ven",t:"Venerdì 20",tag:"partita",m:[["Pranzo","r","pollo"],["18:30","r","gamberi"]]},
+ {k:"sab",t:"Sabato 21",tag:"",m:[["Pranzo","r","zuppa"],["Cena","r","frittata"]]},
+ {k:"dom",t:"Domenica 22",tag:"",m:[["Pranzo","r","polpette"],["Cena","r","pizza"]]}
+];
+const PROT={pesce:"pesce",legumi:"legumi",carne:"carne",uova:"uova",formaggio:"formaggio",nessuna:"senza proteina principale"};
+const SIENA_PROT={"Siena: pesce fresco":"pesce","Siena: legumi":"legumi","Siena: carne":"carne"};
+const CATS=[["verd","Frutta e verdura"],["pesce","Pesce"],["carne","Carne e salumi"],["uova","Uova"],["latt","Latticini senza lattosio e formaggi stagionati"],["pane","Pane"],["pasta","Pasta e riso"],["disp","Dispensa"],["erbe","Erbe e aromi"],["qb","Da controllare in casa"]];
+const PAGES=["indice","colazione","siena"].concat(R.map(r=>r.id)).concat(["spesa"]);
+
+let persone=store.get("persone",2);
+const app=document.getElementById("app");
+const byId=id=>R.find(r=>r.id===id);
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+
+function fmtNum(q,u){
+  if(q===null)return "";
+  if(["g","ml"].includes(u)){const v=q<50?Math.max(5,Math.round(q/5)*5):Math.round(q/10)*10;if(v>=1000)return (v/1000).toLocaleString("it-IT",{maximumFractionDigits:2})+(u==="g"?" kg":" l");return v+" "+u}
+  if(u==="l"){return (Math.round(q*20)/20).toLocaleString("it-IT")+" l"}
+  if(u==="pz"||u==="cucchiaino"){const h=Math.max(.5,Math.ceil(q*2)/2);const w=Math.floor(h),f=h-w;let s=(w?w:"")+(f?(w?" ½":"½"):"");return u==="pz"?s:s+" "+(h>1?"cucchiaini":"cucchiaino")}
+  const n=Math.max(1,Math.ceil(q));
+  const pl={spicchio:"spicchi",rametto:"rametti",costa:"coste",ciuffo:"ciuffi"};
+  return n+" "+(n>1&&pl[u]?pl[u]:u);
+}
+function fmtIng(i,f){const [n,q,u]=i;if(q===null)return "q.b.";const k=q*f;if(n==="Uova"||n==="Uovo")return Math.max(1,Math.ceil(k))+"";if(u==="g"&&/Lievito/.test(n))return (Math.round(k*10)/10).toLocaleString("it-IT")+" g";return fmtNum(k,u)}
+
+function protPill(p){return `<span class="pill p-${p}">${PROT[p]}</span>`}
+
+function renderIndice(){
+  const rot=["-1.2deg",".8deg","-.5deg","1.1deg","-.9deg",".6deg","-1deg"];
+  let h=`<section class="page"><div class="cover"><p class="eyebrow">Settimana dal 16 al 22 novembre · Milano</p><h1>Il quaderno della settimana</h1>
+  <p class="lead">Tocca un piatto per aprire la ricetta passo passo, con gli ingredienti da spuntare e il link alla pagina originale. Tutto è senza lattosio; le dosi seguono il numero di persone scelto in alto.</p></div><div class="days">`;
+  DAYS.forEach((d,i)=>{
+    h+=`<article class="day" style="--r:${rot[i]}"><h3>${d.t}${d.tag?`<span class="tag">${d.tag}</span>`:""}</h3>`;
+    d.m.forEach(([w,t,v])=>{
+      if(t==="r"){const r=byId(v);h+=`<div class="meal"><span class="when">${w}</span><div><button class="go" data-go="${r.id}">${esc(r.title)}</button>${protPill(r.prot)}</div></div>`}
+      else{h+=`<div class="meal"><span class="when">${w}</span><div><button class="go" data-go="siena">${esc(v)}</button>${protPill(SIENA_PROT[v])}</div></div>`}
+    });
+    h+=`</article>`;
+  });
+  h+=`</div><div class="extra"><button class="btn" data-go="colazione">Colazioni e spuntini</button><button class="btn" data-go="siena">Linee guida per Siena</button><button class="btn" data-go="spesa">Lista della spesa</button></div>
+  <div class="sheet" style="margin-top:26px"><h3>Il conto delle proteine</h3><div class="tally">
+  <div><b>4</b><span>pesce, mai in scatola</span></div><div><b>4</b><span>legumi</span></div><div><b>2</b><span>carne</span></div><div><b>2</b><span>uova</span></div><div><b>1</b><span>formaggio, la pizza</span></div><div><b>1</b><span>salume, la pancetta di lunedì</span></div></div>
+  <p class="side" style="color:var(--ink-2)">Il risotto di giovedì resta di proposito senza una proteina principale. Parmigiano e Grana grattugiati li conto come condimento.</p></div></section>`;
+  return h;
+}
+
+function renderColazione(){
+  return `<section class="page prose"><p class="eyebrow">Ogni mattina</p><h2>Colazioni e spuntini</h2>
+  <p>Il punto fisso è un cappuccino con bevanda vegetale senza zuccheri aggiunti, riducendo piano piano lo zucchero. Accanto, a rotazione nei sette giorni, una di queste:</p>
+  <div class="sheet"><label class="chk"><input type="checkbox" data-k="col-1"><span>Biscotti con un po' di frutta secca e un frutto</span></label>
+  <label class="chk"><input type="checkbox" data-k="col-2"><span>Porridge d'avena con frutta</span></label>
+  <label class="chk"><input type="checkbox" data-k="col-3"><span>Pane integrale e marmellata</span></label>
+  <label class="chk"><input type="checkbox" data-k="col-4"><span>Cereali soffiati con frutta</span></label>
+  <label class="chk"><input type="checkbox" data-k="col-5"><span>Pancake integrali con yogurt intero senza lattosio</span></label></div>
+  <p>La frutta di stagione a metà novembre: mele, pere, cachi, mandarini e kiwi.</p>
+  <h3>Prima di allenamento e partita</h3>
+  <p>Giovedì e venerdì, 30-40 minuti prima delle 21 (quindi tra le 20:20 e le 20:30), una fetta di pane con marmellata o miele.</p>
+  <div class="pager"><button class="btn" data-go="indice">← La settimana</button><button class="btn" data-go="siena">Linee guida per Siena →</button></div></section>`;
+}
+
+function renderSiena(){
+  return `<section class="page prose"><p class="eyebrow">Da lunedì sera a mercoledì a pranzo</p><h2>Quattro pasti a Siena</h2>
+  <p>Niente ricette: solo qualche criterio per scegliere al ristorante senza perdere l'equilibrio della settimana.</p>
+  <div class="sheet"><h3>Lunedì sera <span class="pill p-pesce">pesce</span></h3><p class="side">Pesce fresco alla griglia o al forno, verdure cotte e poco pane. Siena è lontana dal mare: se il pesce non ti convince prendi legumi o carne bianca, e sabato sera la frittata diventa un piatto di pesce.</p></div>
+  <div class="sheet"><h3>Martedì a pranzo <span class="pill p-legumi">legumi</span></h3><p class="side">Zuppa di ceci, farro e fagioli oppure fagioli all'uccelletto. Diffida della ribollita e di parecchie zuppe toscane, che contengono cavolo nero.</p></div>
+  <div class="sheet"><h3>Martedì sera <span class="pill p-carne">carne</span></h3><p class="side">Una tagliata o un arrosto in porzione ragionevole, con verdure grigliate.</p></div>
+  <div class="sheet"><h3>Mercoledì a pranzo <span class="pill p-pesce">pesce</span></h3><p class="side">Di nuovo pesce fresco se c'è, con la stessa alternativa di lunedì.</p></div>
+  <div class="note warn"><strong>Lattosio:</strong> lascia stare pecorino, burro e panna nei condimenti e chiedi i piatti senza formaggio grattugiato quando non sai quale usano. Pane toscano e cantucci con misura, acqua al posto delle bibite zuccherate.</div>
+  <div class="pager"><button class="btn" data-go="colazione">← Colazioni</button><button class="btn" data-go="uova">Mercoledì sera →</button></div></section>`;
+}
+
+function renderRicetta(r){
+  const f=persone/r.base;
+  const idx=PAGES.indexOf(r.id),prev=PAGES[idx-1],next=PAGES[idx+1];
+  const label=p=>p==="indice"?"La settimana":p==="spesa"?"Lista della spesa":p==="siena"?"Siena":p==="colazione"?"Colazioni":byId(p).title;
+  let h=`<section class="page"><div class="rhead"><p class="eyebrow">${r.dayL} · ${r.meal}</p><h1>${esc(r.title)}</h1>
+  <div class="meta"><span>Tempo: <b>${r.time}</b></span><span>${protPill(r.prot)}</span><a class="src" href="${r.url}" target="_blank" rel="noopener">Ricetta originale su GialloZafferano ↗</a></div>
+  <p>${r.start}</p></div>
+  <div class="note"><strong>Senza lattosio.</strong> ${r.lact}</div>${r.extra?`<div class="note warn">${r.extra}</div>`:""}
+  <div class="cols"><div class="ing"><h3>Ingredienti</h3><p class="sub">Dosi per ${persone} ${persone>1?"persone":"persona"}${r.id==="pizza"?" (una pizza a testa)":""}, ricalcolate dalla ricetta per ${r.base}.</p>`;
+  r.ing.forEach((i,n)=>{h+=`<label class="chk"><input type="checkbox" data-k="${r.id}-i${n}"><span><span class="qty">${fmtIng(i,f)}</span> ${esc(i[0])}</span></label>`});
+  h+=`</div><div class="steps"><h3>Procedimento</h3><div class="progress" aria-hidden="true"><i id="bar-${r.id}"></i></div><p class="plabel" id="pl-${r.id}"></p><ol>`;
+  r.steps.forEach((s,n)=>{h+=`<li class="step" data-step="${r.id}-s${n}" tabindex="0" role="checkbox" aria-checked="false"><p>${esc(s)}</p></li>`});
+  h+=`</ol><p class="side" style="font-size:.85rem;color:var(--ink-2)">Tocca un passaggio quando l'hai fatto. Le quantità nei passaggi sono quelle della ricetta originale.</p><div style="margin-top:6px"><button class="ghost" data-reset="${r.id}">Ricomincia da capo</button></div>${r.side?`<div class="note warn" style="margin-top:14px">${r.side}</div>`:""}</div></div>
+  <div class="pager"><button class="btn" data-go="${prev}">← ${esc(label(prev))}</button><button class="btn" data-go="${next}">${esc(label(next))} →</button></div></section>`;
+  return h;
+}
+
+function aggregate(list){
+  const m=new Map();
+  list.forEach(r=>{const f=persone/r.base;r.ing.forEach(i=>{
+    const [n,q,u,key,cat,sq,su]=i; if(cat==="none")return;
+    const qq=sq!=null?sq:q, uu=su!=null?su:u;
+    const id=cat+"|"+key;
+    if(!m.has(id))m.set(id,{key,cat,units:{},days:new Set(),qb:false});
+    const e=m.get(id); e.days.add(r.day);
+    if(qq===null||cat==="qb"){e.qb=true;return}
+    e.units[uu]=(e.units[uu]||0)+qq*f;
+  })});
+  return m;
+}
+function renderSpesa(){
+  const dl={lun:"lun",mer:"mer",gio:"gio",ven:"ven",sab:"sab",dom:"dom"};
+  const groups=[["Prima di partire","Per il pranzo di lunedì.",R.filter(r=>r.day==="lun"),"g1"],["Al rientro da Siena","Per i pasti da mercoledì sera a domenica. Il salmone compralo il giorno prima o la mattina stessa; i gamberi vanno bene anche surgelati.",R.filter(r=>r.day!=="lun"),"g2"]];
+  let h=`<section class="page"><p class="eyebrow">Ultima pagina</p><h1>Lista della spesa</h1><p class="lead">Quantità per ${persone} ${persone>1?"persone":"persona"}, sommate da tutte le ricette e arrotondate. Accanto a ogni voce i giorni in cui serve.</p><div class="shop">`;
+  groups.forEach(([t,s,list,gk])=>{
+    const m=aggregate(list);
+    h+=`<div class="shopgrp"><h3>${t}</h3><p class="sub" style="margin:0">${s}</p>`;
+    CATS.forEach(([c,cl])=>{
+      const items=[...m.values()].filter(e=>e.cat===c).sort((a,b)=>a.key.localeCompare(b.key,"it"));
+      if(!items.length)return;
+      h+=`<p class="cat">${cl}</p>`;
+      items.forEach(e=>{
+        const amt=Object.entries(e.units).map(([u,q])=>e.key==="Uova"?Math.ceil(q)+"":fmtNum(q,u)).join(" + ");
+        const days=[...e.days].map(d=>dl[d]).join(", ");
+        h+=`<label class="chk"><input type="checkbox" data-k="spesa-${gk}-${esc(e.cat+e.key)}"><span>${esc(e.key)}${amt?` <span class="qty">${amt}</span>`:""}<span class="days-small">${days}</span></span></label>`;
+      });
+    });
+    h+=`</div>`;
+  });
+  h+=`<div class="shopgrp"><h3>Colazioni e spuntini</h3><p class="sub" style="margin:0">Per tutta la settimana, nelle quantità che usi di solito.</p>`;
+  ["Bevanda vegetale senza zuccheri aggiunti","Yogurt intero senza lattosio","Fiocchi d'avena","Biscotti","Frutta secca","Pane integrale","Marmellata","Miele","Cereali soffiati","Farina integrale per i pancake","Mele, pere, cachi, mandarini e kiwi"].forEach((x,n)=>{h+=`<label class="chk"><input type="checkbox" data-k="spesa-col-${n}"><span>${x}</span></label>`});
+  h+=`</div></div><div class="pager"><button class="btn" data-go="pizza">← Pizza Margherita</button><button class="btn" data-go="indice">Torna alla settimana</button></div><div style="margin-top:12px"><button class="ghost" data-resetshop="1">Togli tutte le spunte della spesa</button></div></section>`;
+  return h;
+}
+
+function updateProgress(id){
+  const steps=[...app.querySelectorAll(`[data-step^="${id}-s"]`)];
+  const done=steps.filter(s=>s.classList.contains("done")).length;
+  const bar=document.getElementById("bar-"+id),pl=document.getElementById("pl-"+id);
+  if(bar)bar.style.width=(steps.length?done/steps.length*100:0)+"%";
+  if(pl)pl.textContent=done===steps.length?`Fatto: ${done} passaggi su ${steps.length}. Buon appetito.`:`${done} passaggi su ${steps.length}`;
+}
+
+function show(p){
+  if(!PAGES.includes(p))p="indice";
+  let h;
+  if(p==="indice")h=renderIndice();else if(p==="colazione")h=renderColazione();else if(p==="siena")h=renderSiena();else if(p==="spesa")h=renderSpesa();else h=renderRicetta(byId(p));
+  app.innerHTML=h;
+  app.querySelectorAll("input[data-k]").forEach(c=>{c.checked=!!store.get("c:"+c.dataset.k,false)});
+  app.querySelectorAll("[data-step]").forEach(s=>{const d=!!store.get("c:"+s.dataset.step,false);s.classList.toggle("done",d);s.setAttribute("aria-checked",d)});
+  const r=byId(p); if(r)updateProgress(r.id);
+  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-current",t.dataset.go===p?"true":"false"));
+  store.set("page",p); current=p;
+  window.scrollTo({top:0});
+}
+let current="indice";
+
+document.addEventListener("click",e=>{
+  const g=e.target.closest("[data-go]"); if(g){show(g.dataset.go);return}
+  const pb=e.target.closest("[data-p]"); if(pb){persone=+pb.dataset.p;store.set("persone",persone);document.querySelectorAll("[data-p]").forEach(b=>b.setAttribute("aria-pressed",b===pb?"true":"false"));show(current);return}
+  const st=e.target.closest("[data-step]"); if(st){toggleStep(st);return}
+  const rs=e.target.closest("[data-reset]"); if(rs){const id=rs.dataset.reset;const r=byId(id);r.steps.forEach((_,n)=>store.set("c:"+id+"-s"+n,false));r.ing.forEach((_,n)=>store.set("c:"+id+"-i"+n,false));show(id);return}
+  const rsp=e.target.closest("[data-resetshop]"); if(rsp){app.querySelectorAll('input[data-k^="spesa-"]').forEach(c=>{c.checked=false;store.set("c:"+c.dataset.k,false)});return}
+});
+document.addEventListener("change",e=>{const c=e.target.closest("input[data-k]");if(c)store.set("c:"+c.dataset.k,c.checked)});
+document.addEventListener("keydown",e=>{const st=e.target.closest&&e.target.closest("[data-step]");if(st&&(e.key===" "||e.key==="Enter")){e.preventDefault();toggleStep(st)}});
+function toggleStep(st){const d=!st.classList.contains("done");st.classList.toggle("done",d);st.setAttribute("aria-checked",d);store.set("c:"+st.dataset.step,d);updateProgress(st.dataset.step.split("-s")[0])}
+
+document.querySelectorAll("[data-p]").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.p===persone?"true":"false"));
+show(store.get("page","indice"));
+})();
+</script>
+
+</body></html>
